@@ -28,7 +28,7 @@
                         <div class="card overflow-hidden card-bg-fill border-0 card-border-effect-none">
                             <div class="row g-0">
                                 <div class="col-lg-6">
-                                    <img src="{{ asset('admin/images/banner-DMS.jpg') }}" alt="" width="100%" height="100%">
+                                    <img src="{{ asset('admin/images/disaster management.jpg') }}" alt="" width="100%" height="100%">
                                     <div class="p-lg-5 p-4 auth-one-bg h-100 d-none">
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
