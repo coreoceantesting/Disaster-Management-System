@@ -135,7 +135,6 @@
                     </a>
                 </li>
                 @endcan --}}
-                {{-- test git config with cpanel --}}
 
                 <li class="nav-item">
 
