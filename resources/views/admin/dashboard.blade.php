@@ -228,7 +228,7 @@
         <div class="col-xl-6">
             <div class="card border-primary card-height-100">
                 <div class="card-header bg-primary align-items-center d-flex">
-                    <h4 class="card-title text-white mb-0 flex-grow-1">Total List (आजची यादी)</h4>
+                    <h4 class="card-title text-white mb-0 flex-grow-1">Total List (एकूण यादी)</h4>
                     <div class="flex-shrink-0">
                         <a href="{{route('yearly_list')}}" class="btn btn-soft-primary btn-sm">
                             View All
