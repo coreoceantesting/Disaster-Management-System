@@ -451,7 +451,7 @@
                 }
             });
 
-            $('#buttons-datatables tbody tr').each(function() {
+            $('#vehicledetails tbody tr').each(function() {
                 var insuranceEndDate = new Date($(this).find('td:nth-child(5)').text()); // Adjust the index based on your table structure
 
                 // Calculate the difference in days
@@ -465,12 +465,13 @@
                 }
             });
 
-            $('#buttons-datatables tbody tr').each(function() {
+            $('#vehicledetails tbody tr').each(function() {
                 var fitnessEndDate = new Date($(this).find('td:nth-child(6)').text()); // Adjust the index based on your table structure
 
                 // Calculate the difference in days
                 var timeDiff = fitnessEndDate.getTime() - currentDate.getTime();
                 var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                console.log(fitnessEndDate);
 
                 if (daysDiff <= 10 && daysDiff >= 0) {
                     $(this).find('td:nth-child(6)').addClass('text-danger blink');
