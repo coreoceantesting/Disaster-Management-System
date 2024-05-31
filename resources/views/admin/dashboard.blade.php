@@ -5,7 +5,7 @@
             50% { opacity: 0; }
             100% { opacity: 1; }
         }
-    
+
         .blink {
             animation: blink 1s infinite;
         }
@@ -52,7 +52,7 @@
                         </div>
                         <!-- end card-->
                     </div><!--end col-->
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-xl-6 col-md-6 d-none">
                         <!-- card -->
                         <div class="card card-animate" id="todaySlipsCardNew">
                             <div class="card-body" style="background-color: deepskyblue">
@@ -85,7 +85,7 @@
                         </div>
                         <!-- end card-->
                     </div><!-- end col -->
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-xl-6 col-md-6 d-none">
                         <!-- card -->
                         <div class="card card-animate" id="monthlySlipsCardNew">
                             <div class="card-body" style="background-color: mistyrose">
@@ -187,7 +187,7 @@
                         </div>
                         <!-- end card-->
                     </div><!--end col-->
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-xl-6 col-md-6 d-none">
                         <!-- card -->
                         <div class="card card-animate" id="vardiahavalSlipsCardNew">
                             <div class="card-body" style="background-color: paleturquoise">
@@ -228,9 +228,9 @@
         <div class="col-xl-6">
             <div class="card border-primary card-height-100">
                 <div class="card-header bg-primary align-items-center d-flex">
-                    <h4 class="card-title text-white mb-0 flex-grow-1">Today's List (आजची यादी)</h4>
+                    <h4 class="card-title text-white mb-0 flex-grow-1">Total List (आजची यादी)</h4>
                     <div class="flex-shrink-0">
-                        <a href="{{route('todays_list')}}" class="btn btn-soft-primary btn-sm">
+                        <a href="{{route('yearly_list')}}" class="btn btn-soft-primary btn-sm">
                             View All
                         </a>
                     </div>
@@ -249,7 +249,7 @@
                                     <th>Sr.No</th>
                                     <th>Caller Name</th>
                                     <th>Date</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -258,7 +258,7 @@
                                         <td>{{ $serialNumber++ }}</td>
                                         <td>{{ $list->caller_name }}</td>
                                         <td>{{ $list->slip_date }}</td>
-                                        <td>
+                                        {{-- <td>
                                             <button class="download-pdf btn btn-secondary px-2 py-1"
                                                     title="Download PDF"
                                                     data-id="{{ $list->slip_id }}"
@@ -266,7 +266,7 @@
                                             >
                                                 <i data-feather="download"></i>
                                             </button>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

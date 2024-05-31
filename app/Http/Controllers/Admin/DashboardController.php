@@ -16,9 +16,9 @@ class DashboardController extends Controller
         $todaysSlipCount =DB::table('slips')->whereDate('created_at', now())->count();
         $todaysSlipList =DB::table('slips')
         ->select('slip_date','caller_name','pdf_name','slip_id')
-        ->whereDate('created_at', now())
+        // ->whereDate('created_at', now())
         ->latest()
-        ->take(5)
+        ->take(3)
         ->get();
         $monthlySlipCount = DB::table('slips')
         ->whereYear('created_at', now()->year)

@@ -147,13 +147,13 @@
                     </a>
                     <div class="collapse menu-dropdown" id="menu5">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('todays_list') }}" class="nav-link" data-key="t-horizontal">Today's Slips (आजच्या स्लिप्स)</a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="{{ route('monthly_list') }}" class="nav-link" data-key="t-horizontal">Montly Slips (मासिक स्लिप्स)</a>
-                            </li>
+                            </li> --}}
 
                             <li class="nav-item">
                                 <a href="{{ route('yearly_list') }}" class="nav-link" data-key="t-horizontal">Yearly Slips (वार्षिक स्लिप्स)</a>
@@ -163,9 +163,9 @@
                                 <a href="{{ route('action_taken_list') }}" class="nav-link" data-key="t-horizontal">Action Taken Slips(कारवाई केलेल्या स्लिप्स)</a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('vardi_ahaval_list') }}" class="nav-link" data-key="t-horizontal">Vardi Ahaval(वर्दी अहवाल)</a>
-                            </li>
+                            </li> --}}
 
                         </ul>
                     </div>

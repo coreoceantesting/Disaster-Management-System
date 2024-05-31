@@ -178,11 +178,11 @@
                                     <span class="text-danger error-text total_distance_err"></span>
                                 </div>
 
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <label for="pumping_hours" class="control-label">Pumping hours (पंपिंग तास):</label>
                                     <input class="form-control" type="text" placeholder="Enter Pumping hours" id="pumping_hours" name="pumping_hours" >
                                     <span class="text-danger error-text pumping_hours_err"></span>
-                                </div>
+                                </div> --}}
 
                             </div>
                             <hr>
@@ -198,7 +198,7 @@
                                         @endforeach
                                     </select>
                                     <span class="text-danger error-text worker_name_err"></span>
-                            
+
                                     <label for="worker_designation[]" class="control-label">Worker Designation (कर्मचारीचं पदनाम) <span class="text-danger">*</span></label>:</label>
                                     <select class="form-control worker-designation" id="worker_designation[]" name="worker_designation[]" required>
                                         <!-- Populate dropdown options from master data -->
@@ -228,10 +228,10 @@
                 </form>
             </div>
         </div>
-        
-        
-        
-        
+
+
+
+
 
 
         {{-- Listing Table --}}
@@ -259,7 +259,7 @@
                             </form>
                         </div>
                     </div>
-                    
+
                     @php
                         $serialNumber = 1;
                     @endphp
@@ -293,10 +293,10 @@
                                                     <i data-feather="download"></i>
                                                 </button> --}}
                                                 @can('actionpermissions.view_generate_slip')
-                                                <button class="view-element btn btn-secondary px-2 py-1" title="View Slip" data-id="{{ $list->slip_id }}"><i data-feather="eye"></i></button> 
+                                                <button class="view-element btn btn-secondary px-2 py-1" title="View Slip" data-id="{{ $list->slip_id }}"><i data-feather="eye"></i></button>
                                                 @endcan
                                                 @can('actionpermissions.take_action')
-                                                <button class="btn btn-danger action-element px-2 py-1" title="Take Action" data-id="{{ $list->slip_id }}">Take Action</button> 
+                                                <button class="btn btn-danger action-element px-2 py-1" title="Take Action" data-id="{{ $list->slip_id }}">Take Action</button>
                                                 @endcan
                                             </td>
                                         </tr>
@@ -548,7 +548,7 @@
                 success: function(data) {
                     // Generate HTML table with the predefined headers
                     var tableHtml = '<table class="table table-bordered">';
-                    
+
                     // Use predefined headers
                     tableHtml += '<thead><tr>';
                     tableHtml += '<th scope="col">Slip Date (स्लिप तारीख)</th>';
@@ -575,7 +575,7 @@
 
                     // Display table in the modal
                     $('#slipDetails').html(tableHtml);
-                    
+
                     // Show the modal
                     $('#viewSlipModal').modal('show');
                 },

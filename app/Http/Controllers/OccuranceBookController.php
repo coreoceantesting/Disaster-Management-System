@@ -34,7 +34,7 @@ class OccuranceBookController extends Controller
     {
         // Fetch slip details based on $slipId
         $slip = DB::table('slips')->select('slip_date','caller_name','caller_mobile_no','incident_location_address','land_mark','incident_reason','slip_status')->where('slip_id',$slipId)->first();
-        
+
         // Fetch additional data from slip_action_form
         $slipActionFormData = DB::table('slip_action_form')->select('*')->where('slip_id', $slipId)->first();
 
@@ -49,8 +49,8 @@ class OccuranceBookController extends Controller
             ->select(
                 'additional_help_details.inform_call_time',
                 'additional_help_details.vehicle_departure_time',
-                'additional_help_details.vehicle_arrival_time', 
-                'additional_help_details.vehicle_return_time', 
+                'additional_help_details.vehicle_arrival_time',
+                'additional_help_details.vehicle_return_time',
                 'additional_help_details.no_of_fireman',
                 'additional_help_details.type_of_vehicle',
                 'additional_help_details.vehicle_return_to_center_time',
@@ -87,7 +87,7 @@ class OccuranceBookController extends Controller
             'vehicle_arrival_datetime' => 'required|array',
             'vehicle_return_to_firestation_datetime' => 'required|array',
         ]);
-    
+
         // Store data in the database
         foreach ($request->input('fire_station') as $key => $fireStation) {
             DB::table('additional_help_details')->insert([
@@ -108,7 +108,7 @@ class OccuranceBookController extends Controller
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
         }
-        
+
         DB::table('slips')->where('slip_id',$request->input('slip_id'))->update([
             'is_additional_form_submitted' => '1',
             'slip_status' => 'Additional Help Submitted',
@@ -143,7 +143,7 @@ class OccuranceBookController extends Controller
     }
 
     // vardi ahawal List
-    
+
     public function vardi_ahaval_list()
     {
         $slip_list = DB::table('slips')->where('is_occurance_book_submitted','1')->latest()->get();
@@ -174,7 +174,7 @@ class OccuranceBookController extends Controller
 
     public function store_vardi_ahaval(Request $request)
     {
-        try 
+        try
         {
             $request->validate([
                 'vardi_name' => 'required',
@@ -215,7 +215,7 @@ class OccuranceBookController extends Controller
                 'book_no' => 'required',
                 'page_no' => 'required',
             ]);
-    
+
             // Store data in the database
             DB::table('vardi_ahaval_details')->insert([
                 'slip_id' => $request->input('edit_model_id_new'),
@@ -259,7 +259,7 @@ class OccuranceBookController extends Controller
                 'created_by' => Auth::user()->id,
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
-        
+
             DB::table('slips')->where('slip_id',$request->input('edit_model_id_new'))->update([
                 'is_vardi_ahaval_submitted' => '1',
                 'slip_status' => 'Vardi Ahval Submitted',
@@ -286,8 +286,8 @@ class OccuranceBookController extends Controller
             ->select(
                 'additional_help_details.inform_call_time',
                 'additional_help_details.vehicle_departure_time',
-                'additional_help_details.vehicle_arrival_time', 
-                'additional_help_details.vehicle_return_time', 
+                'additional_help_details.vehicle_arrival_time',
+                'additional_help_details.vehicle_return_time',
                 'additional_help_details.no_of_fireman',
                 'additional_help_details.center_name',
                 'additional_help_details.type_of_vehicle',
@@ -307,7 +307,7 @@ class OccuranceBookController extends Controller
 
             // Render the PDF view (adjust the view path based on your project structure)
             $pdfview = view('generateslips.vardi_ahaval_pdf', compact('slipData','vardiAhavalData','actionTakenData','additionalHelpDetails','workers_Details'));
-            
+
             $pdf->WriteHTML($pdfview->render());
 
             // Output the PDF to the file
@@ -342,6 +342,55 @@ class OccuranceBookController extends Controller
         // Return the response with the PDF file path
         return response()->json(['pdfUrl' => $pdfFilePath]);
     }
+
+    public function view_pdf($slipId)
+    {
+        // Fetch slip details based on $slipId
+        $slip = DB::table('slips')->select('slip_date','caller_name','caller_mobile_no','incident_location_address','land_mark','incident_reason','slip_status')->where('slip_id',$slipId)->first();
+        // dd($slip);
+        // Fetch additional data from slip_action_form
+        $slipActionFormData = DB::table('slip_action_form')->select('*')->where('slip_id', $slipId)->first();
+
+        // Fetch worker details from on_field_worker_details with designation name
+        $workerDetails = DB::table('on_field_worker_details')
+            ->select('on_field_worker_details.worker_name', 'designations.designation_name')
+            ->join('designations', 'on_field_worker_details.worker_designation', '=', 'designations.designation_id')
+            ->where('on_field_worker_details.slip_action_form_id', $slipActionFormData->slip_action_form_id)
+            ->get();
+
+        $additionalHelpDetails = DB::table('additional_help_details')
+            ->select(
+                'additional_help_details.inform_call_time',
+                'additional_help_details.vehicle_departure_time',
+                'additional_help_details.vehicle_arrival_time',
+                'additional_help_details.vehicle_return_time',
+                'additional_help_details.no_of_fireman',
+                'additional_help_details.type_of_vehicle',
+                'additional_help_details.vehicle_return_to_center_time',
+                'additional_help_details.total_distance',
+                'additional_help_details.pumping_hours',
+                'vehicle_details.vehicle_number',
+                'fire_stations.name',)
+            ->join('fire_stations', 'additional_help_details.fire_station_name', '=', 'fire_stations.fire_station_id')
+            ->join('vehicle_details', 'additional_help_details.vehicle_number', '=', 'vehicle_details.vehicle_id')
+            ->where('additional_help_details.slip_id', $slipId)
+            ->get();
+
+        $occuranceBookDetails = DB::table('occurance_book')->select('occurance_book_date','occurance_book_description', 'occurance_book_remark')->where('slip_id', $slipId)->first();
+        // dd($additionalHelpDetails);
+
+        // Load a view file and pass the data to it
+        $html = view('pdf_view', compact('slip', 'slipActionFormData', 'workerDetails', 'additionalHelpDetails', 'occuranceBookDetails'))->render();
+
+        // Initialize mPDF
+        $mpdf = new Mpdf();
+
+        // Write HTML to PDF
+        $mpdf->WriteHTML($html);
+
+        // Output a PDF file directly to the browser
+        return $mpdf->Output('slip_' . $slipId . '.pdf', 'I');
+        }
 
 
 
