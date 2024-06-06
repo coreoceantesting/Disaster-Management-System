@@ -488,7 +488,7 @@
                                                 <button class="edit-element btn btn-secondary px-2 py-1" title="Create Vardi Ahaval" data-id="{{ $list->slip_id }}"><i data-feather="edit"></i> Report (वर्दी अहवाल)</button>
                                                 @endif
                                                 @endcan
-                                                @can('actionpermissions.download_vardi_ahaval')
+                                                {{-- @can('actionpermissions.download_vardi_ahaval') --}}
                                                 @if($list->is_vardi_ahaval_submitted == '1')
                                                 <button class="download-pdf btn btn-secondary px-2 py-1"
                                                         title="Download PDF"
@@ -498,7 +498,7 @@
                                                     <i data-feather="download"></i>
                                                 </button>
                                                 @endif
-                                                @endcan
+                                                {{-- @endcan --}}
                                             </td>
                                         </tr>
                                     @endforeach
