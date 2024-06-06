@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="gender">Select Gender(लिंग निवडा) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="gender">Select Gender(लिंग निवडा) <span class="text-danger"></span></label>
                                 <select class="form-control" id="gender" name="gender">
                                     <option value="">--Select Gender--</option>
                                     <option value="Male">Male</option>
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="dob">User Date Of Birth(वापरकर्ता जन्मतारीख) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="dob">User Date Of Birth(वापरकर्ता जन्मतारीख) <span class="text-danger"></span></label>
                                 <input class="form-control" id="dob" name="dob" type="date" placeholder="Enter Date of birth">
                                 <span class="text-danger error-text dob_err"></span>
                             </div>
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="fire_station_id">Select Fire Station(फायर स्टेशन निवडा) <span class="text-danger">(*if Department is Fire)</span></label>
+                                <label class="col-form-label" for="fire_station_id">Select Fire Station(फायर स्टेशन निवडा) <span class="text-danger">*</span></label>
                                 <select class="form-control" id="fire_station_id" name="fire_station_id">
                                     <option value="">--Select Fire Station--</option>
                                     @foreach ($fire_stations as $list)
@@ -77,7 +77,7 @@
 
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label" for="role">Select User Type / Role(वापरकर्ता प्रकार / भूमिका निवडा) <span class="text-danger">*</span></label>
-                                <select class="js-example-basic-single col-sm-12" id="role" name="role">
+                                <select class="form-control" id="role" name="role">
                                     <option value="">--Select Role--</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
@@ -146,7 +146,7 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="gender">Select Gender(लिंग निवडा) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="gender">Select Gender(लिंग निवडा) <span class="text-danger"></span></label>
                                 <select class="form-control" id="gender" name="gender">
                                     <option value="">--Select Gender--</option>
                                     <option value="Male">Male</option>
@@ -156,7 +156,7 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="dob">User Date Of Birth(वापरकर्ता जन्मतारीख) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="dob">User Date Of Birth(वापरकर्ता जन्मतारीख) <span class="text-danger"></span></label>
                                 <input class="form-control" id="dob" name="dob" type="date" placeholder="Enter Date of birth">
                                 <span class="text-danger error-text dob_err"></span>
                             </div>
@@ -185,7 +185,7 @@
 
                             <div class="col-md-4 mt-3">
                                 <label class="col-form-label">Select User Type / Role(वापरकर्ता प्रकार / भूमिका निवडा) <span class="text-danger">*</span></label>
-                                <select class="js-example-basic-single col-sm-12" name="role">
+                                <select class="js-example-basic-single col-sm-12" name="role" id="role">
                                     <option value="">--Select Role--</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
@@ -555,6 +555,14 @@
                 } else {
                     swal("Error!", data.error, "error");
                 }
+                var departmentId = $('#editForm #department_id').val();
+                if (departmentId === '2') {
+                    $('#editForm #fire_station_id').closest('.col-md-4').show();
+                    $('#editForm #role').closest('.col-md-4').show();
+                } else {
+                    $('#editForm #fire_station_id').closest('.col-md-4').hide();
+                    $('#editForm #role').closest('.col-md-4').hide();
+                }
             },
             error: function(error, jqXHR, textStatus, errorThrown) {
                 swal("Error!", "Some thing went wrong", "error");
@@ -720,4 +728,49 @@
         }
 
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to show/hide fire station and role fields based on department selection
+        function toggleFields() {
+            var departmentId = $('#department_id').val();
+            if (departmentId === '2') {
+                $('#fire_station_id').closest('.col-md-4').show();
+                $('#role').closest('.col-md-4').show();
+            } else {
+                $('#fire_station_id').closest('.col-md-4').hide();
+                $('#role').closest('.col-md-4').hide();
+            }
+        }
+
+        // Initially hide fire station and role fields
+        toggleFields();
+
+        // Listen for change event on department dropdown
+        $('#department_id').on('change', function() {
+            toggleFields();
+        });
+
+        function toggleEditFields() {
+            var departmentId = $('#editForm #department_id').val();
+            if (departmentId === '2') {
+                $('#editForm #fire_station_id').closest('.col-md-4').show();
+                $('#editForm #role').closest('.col-md-4').show();
+            } else {
+                $('#editForm #fire_station_id').closest('.col-md-4').hide();
+                $('#editForm #role').closest('.col-md-4').hide();
+            }
+        }
+
+        // Initially hide fire station and role fields in edit form
+        toggleEditFields();
+
+        // Listen for change event on department dropdown in edit form
+        $('#editForm #department_id').on('change', function() {
+            toggleEditFields();
+        });
+
+    });
+
 </script>

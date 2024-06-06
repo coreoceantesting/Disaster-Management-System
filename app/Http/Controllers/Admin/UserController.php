@@ -52,6 +52,9 @@ class UserController extends Controller
             $input = $request->validated();
             $input['password'] = Hash::make($input['password']);
             $user = User::create( Arr::only( $input, Auth::user()->getFillable() ) );
+            if(empty($input['role'])){
+                $input['role'] = '1';
+            }
             DB::table('model_has_roles')->insert(['role_id'=> $input['role'], 'model_type'=> 'App\Models\User', 'model_id'=> $user->id]);
             DB::commit();
             return response()->json(['success'=> 'User created successfully!']);
