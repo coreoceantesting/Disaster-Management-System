@@ -27,7 +27,8 @@ class UpdateUserRequest extends FormRequest
             'name' => 'required',
             'gender' => 'required',
             'dob' => 'required',
-            'fire_station_id' => 'required',
+            'department_id' => 'required',
+            'fire_station_id' => 'nullable',
             'email' => 'required|email',
             'mobile' => 'required|digits:10',
         ];

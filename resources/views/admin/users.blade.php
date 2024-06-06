@@ -54,7 +54,18 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="fire_station_id">Select Fire Station(फायर स्टेशन निवडा) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="department_id">Select Department(विभाग निवडा) <span class="text-danger">*</span></label>
+                                <select class="form-control" id="department_id" name="department_id">
+                                    <option value="">--Select Department--</option>
+                                    @foreach ($department_lists as $list)
+                                        <option value="{{ $list->department_id }}">{{ $list->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger error-text department_id_err"></span>
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <label class="col-form-label" for="fire_station_id">Select Fire Station(फायर स्टेशन निवडा) <span class="text-danger">(*if Department is Fire)</span></label>
                                 <select class="form-control" id="fire_station_id" name="fire_station_id">
                                     <option value="">--Select Fire Station--</option>
                                     @foreach ($fire_stations as $list)
@@ -151,7 +162,18 @@
                             </div>
 
                             <div class="col-md-4 mt-3">
-                                <label class="col-form-label" for="fire_station_id">Select Fire Station(फायर स्टेशन निवडा) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="department_id">Select Department(विभाग निवडा) <span class="text-danger">*</span></label>
+                                <select class="form-control" id="department_id" name="department_id">
+                                    <option value="">--Select Department--</option>
+                                    @foreach ($department_lists as $list)
+                                        <option value="{{ $list->department_id }}">{{ $list->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger error-text department_id_err"></span>
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <label class="col-form-label" for="fire_station_id">Select Fire Station(फायर स्टेशन निवडा) <span class="text-danger">(*if Department is Fire)</span></label>
                                 <select class="form-control" id="fire_station_id" name="fire_station_id">
                                     <option value="">--Select Fire Station--</option>
                                     @foreach ($fire_stations as $list)
@@ -528,6 +550,7 @@
                     $("#editForm select[name='gender']").val(data.user.gender);
                     $("#editForm input[name='dob']").val(data.user.dob);
                     $("#editForm select[name='fire_station_id']").val(data.user.fire_station_id);
+                    $("#editForm select[name='department_id']").val(data.user.department_id);
                     $("#editForm select[name='ward_id']").html(data.wardHtml);
                 } else {
                     swal("Error!", data.error, "error");

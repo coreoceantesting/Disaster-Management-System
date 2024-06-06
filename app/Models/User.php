@@ -26,6 +26,7 @@ class User extends Authenticatable
         'gender',
         'dob',
         'fire_station_id',
+        'department_id'
     ];
 
     /**
