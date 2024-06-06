@@ -48,6 +48,9 @@
                     <div class="collapse menu-dropdown" id="menuone">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+                                <a href="{{ route('departments.index') }}" class="nav-link" data-key="t-horizontal">Departments(विभाग)</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('firestations.index') }}" class="nav-link" data-key="t-horizontal">Fire Stations(अग्निशमन केंद्रे)</a>
                             </li>
                             <li class="nav-item">

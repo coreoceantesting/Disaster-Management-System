@@ -60,6 +60,7 @@ Route::middleware(['auth','PreventBackHistory'])->group(function()
     Route::resource('equipments', App\Http\Controllers\EquipmentsController::class );
     Route::delete('/equipments/{equipment}/inactive', [App\Http\Controllers\EquipmentsController::class, 'inactive'])->name('equipments.inactive');
     Route::delete('/equipments/{equipment}/active', [App\Http\Controllers\EquipmentsController::class, 'active'])->name('equipments.active');
+    Route::resource('departments', App\Http\Controllers\Admin\Masters\DepartmentController::class );
 
 
 
