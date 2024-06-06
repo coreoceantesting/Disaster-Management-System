@@ -145,7 +145,7 @@
                             </form>
                         </div>
                     </div>
-                    
+
                     @php
                         $serialNumber = 1;
                     @endphp
@@ -181,6 +181,9 @@
                                                 </button>
                                                 @endcan
 
+                                                <button class="send-sms btn btn-secondary px-2 py-1" title="sendsms" data-id="{{ $list->slip_id }}">Send SMS</button>
+                                                <button class="view-sms-detail btn btn-secondary px-2 py-1" title="View Sms Details" data-id="{{ $list->slip_id }}">View SMS Send To</button>
+
                                                 {{-- <button class="edit-element btn btn-secondary px-2 py-1" title="Download PDF" data-id="{{ $list->slip_id }}"><i data-feather="file-text"></i></button> --}}
                                                 {{-- <button class="btn btn-danger rem-element px-2 py-1" title="Delete Vehicle Detail" data-id="{{ $list->vehicle_id }}"><i data-feather="trash-2"></i> </button> --}}
                                             </td>
@@ -194,11 +197,40 @@
             </div>
         </div>
 
+        {{-- send sms popup model --}}
+        <div class="modal fade" id="sendSmsModal" tabindex="-1" aria-labelledby="sendSmsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sendSmsModalLabel">Send SMS</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="sendSmsForm" method="post">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="users" class="form-label">Select Users</label>
+                                <select class="form-select" id="users" name="users[]" multiple required>
+                                    @foreach ($user_lists as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <input type="hidden" id="slip_id" name="slip_id">
+                            <button type="submit" class="btn btn-primary">Send SMS</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
 </x-admin.layout>
 
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 {{-- Current Date & Time --}}
 
 <script>
@@ -398,6 +430,76 @@
 
             // Open the PDF in a new tab/window
             window.open(pdfUrl, '_blank');
+        });
+    });
+</script>
+
+
+{{-- send sms  --}}
+
+<script>
+    $(document).ready(function() {
+        $('#users').select2();
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Handle button click to open modal
+        $('.send-sms').on('click', function() {
+            var slipId = $(this).data('id');
+            $('#slip_id').val(slipId); // Set the slip_id in the form
+            $('#sendSmsModal').modal('show'); // Show the modal
+        });
+    });
+</script>
+
+<script>
+    $("#sendSmsForm").submit(function(e) {
+        e.preventDefault();
+
+        var formdata = new FormData(this);
+        console.log(formdata);
+        $.ajax({
+            url: '/send-sms',
+            type: 'POST',
+            data: formdata,
+            contentType: false,
+            processData: false,
+            success: function(data)
+            {
+                alert(data.message);
+                $('#sendSmsModal').modal('hide');
+                window.location.reload();
+            },
+            error: function(xhr) {
+                    alert('An error occurred while sending the SMS.');
+                }
+        });
+
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Handle button click to open modal
+        $('.view-sms-detail').on('click', function() {
+            var slipId = $(this).data('id');
+            $.ajax({
+                url: '/sms-detail/' + slipId,
+                type: 'GET',
+                success: function(response) {
+                    if (response.sendsmsTo.length > 0) {
+                        alert(response.sendsmsTo);
+                    } else {
+                        alert('No SMS recipients found.');
+                    }
+                },
+                error: function(xhr) {
+                    // Handle error response
+                    alert('An error occurred while fetching SMS detail.');
+                }
+            });
         });
     });
 </script>

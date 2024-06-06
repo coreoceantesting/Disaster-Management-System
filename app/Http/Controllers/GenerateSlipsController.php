@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DriverDetail;
 use App\Models\VehicleDetail;
+use App\Models\User;
 use App\Http\Requests\GenerateSlipsRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
@@ -18,7 +19,8 @@ class GenerateSlipsController extends Controller
     {
         $slip_list = DB::table('slips')->latest()->get();
         $designation_list = DB::table('designations')->where('is_deleted','0')->get();
-        return view('generateslips.slipslist', compact('slip_list','designation_list'));
+        $user_lists = DB::table('users')->get();
+        return view('generateslips.slipslist', compact('slip_list','designation_list', 'user_lists'));
     }
 
     public function store_slip(GenerateSlipsRequest $request)
@@ -45,7 +47,7 @@ class GenerateSlipsController extends Controller
 
             DB::table('slips')->insert($data);
 
-            
+
 
             $pdf = new Mpdf();
             // Save the PDF file
@@ -77,7 +79,7 @@ class GenerateSlipsController extends Controller
             return $this->respondWithAjax($e, 'creating', 'Slip');
         }
     }
-    
+
     public function new_generated_slip()
     {
         $slip_list = DB::table('slips')->where('slip_status','Pending')->latest()->get();
@@ -141,7 +143,7 @@ class GenerateSlipsController extends Controller
                     'created_at' => now(),
                 ]);
             }
-            
+
             DB::table('slips')->where('slip_id', $request->input('slip_id'))->update([
                 'slip_status' => 'Action Form Submitted',
             ]);
@@ -153,7 +155,48 @@ class GenerateSlipsController extends Controller
         }
     }
 
+    public function sendSms(Request $request)
+    {
+        $request->validate([
+            'users' => 'required|array',
+        ]);
 
-    
+        $users = User::whereIn('id', $request->users)->get();
+
+        // Loop through users and send SMS (dummy implementation)
+        foreach ($users as $user) {
+
+            // send sms function with content here
+
+            DB::table('sendSmsDetail')->insert([
+                'slip_id' => $request->slip_id,
+                'user_name'=> $user->name,
+                'status'=> 'sent',
+                'date_time' => now()
+            ]);
+        }
+
+        return response()->json(['message' => 'SMS sent successfully to selected users!']);
+    }
+
+    public function getSmsDetails(Request $request, $slipId)
+    {
+
+
+        $details = DB::table('sendsmsdetail')->where('slip_id', $slipId)->get();
+
+        $sendsmsTo = [];
+        foreach ($details as $detail) {
+            $sendsmsTo[] = $detail->user_name;
+        }
+
+        return response()->json(['sendsmsTo' => $sendsmsTo]);;
+    }
+
+
+
+
+
+
 
 }

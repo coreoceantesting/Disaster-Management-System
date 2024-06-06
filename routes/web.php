@@ -144,6 +144,10 @@ Route::middleware(['auth','PreventBackHistory'])->group(function()
     // download pdf
     Route::get('/view-pdf/{slipId}', [App\Http\Controllers\OccuranceBookController::class, 'view_pdf'])->name('view_pdf');
 
+    // send sms
+    Route::post('/send-sms', [App\Http\Controllers\GenerateSlipsController::class, 'sendSms']);
+    Route::get('/sms-detail/{slipId}', [App\Http\Controllers\GenerateSlipsController::class, 'getSmsDetails']);
+
 });
 
 
