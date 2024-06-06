@@ -55,11 +55,9 @@ class OccuranceBookController extends Controller
                 'additional_help_details.type_of_vehicle',
                 'additional_help_details.vehicle_return_to_center_time',
                 'additional_help_details.total_distance',
-                'additional_help_details.pumping_hours',
-                'vehicle_details.vehicle_number',
-                'fire_stations.name',)
-            ->join('fire_stations', 'additional_help_details.fire_station_name', '=', 'fire_stations.fire_station_id')
-            ->join('vehicle_details', 'additional_help_details.vehicle_number', '=', 'vehicle_details.vehicle_id')
+                'additional_help_details.pumping_hours','additional_help_details.fire_station_name as name','additional_help_details.vehicle_number')
+            // ->join('fire_stations', 'additional_help_details.fire_station_name', '=', 'fire_stations.fire_station_id')
+            // ->join('vehicle_details', 'additional_help_details.vehicle_number', '=', 'vehicle_details.vehicle_id')
             ->where('additional_help_details.slip_id', $slipId)
             ->get();
 
@@ -176,45 +174,45 @@ class OccuranceBookController extends Controller
     {
         try
         {
-            $request->validate([
-                'vardi_name' => 'required',
-                'vardi_contact_no' => 'required',
-                'vardi_place' => 'required',
-                'owner_name' => 'required',
-                'vaparkarta_name' => 'required',
-                'incident_time' => 'required',
-                'first_vehicle_departing_date_time' => 'required',
-                'time_of_arrival_at_the_scene' => 'required',
-                'distance' => 'required',
-                'property_description' => 'required',
-                'type_of_fire' => 'required',
-                // 'limit_of_fire' => 'required',
-                'possible_cause_of_fire' => 'required',
-                // 'description_of_damage' => 'required',
-                // 'property_damage' => 'required',
-                'area_damage' => 'required',
-                // 'space_loss' => 'required',
-                // 'property_loss' => 'required',
-                'officer_name_present_at_last_moment' => 'required',
-                'date_of_departure_from_scene' => 'required',
-                'time_of_departure_from_scene' => 'required',
-                'total_time' => 'required',
-                'total_hour' => 'required',
-                'male_one' => 'required',
-                'woman_one' => 'required',
-                'male_two' => 'required',
-                'woman_two' => 'required',
-                'male_three' => 'required',
-                'woman_three' => 'required',
-                'deceased_male' => 'required',
-                'deceased_woman' => 'required',
-                'wounded_male' => 'required',
-                'wounded_woman' => 'required',
-                'casualty_male' => 'required',
-                'casualty_woman' => 'required',
-                'book_no' => 'required',
-                'page_no' => 'required',
-            ]);
+            // $request->validate([
+            //     'vardi_name' => 'required',
+            //     'vardi_contact_no' => 'required',
+            //     'vardi_place' => 'required',
+            //     'owner_name' => 'required',
+            //     'vaparkarta_name' => 'required',
+            //     'incident_time' => 'required',
+            //     'first_vehicle_departing_date_time' => 'required',
+            //     'time_of_arrival_at_the_scene' => 'required',
+            //     'distance' => 'required',
+            //     'property_description' => 'required',
+            //     'type_of_fire' => 'required',
+            //     // 'limit_of_fire' => 'required',
+            //     'possible_cause_of_fire' => 'required',
+            //     // 'description_of_damage' => 'required',
+            //     // 'property_damage' => 'required',
+            //     'area_damage' => 'required',
+            //     // 'space_loss' => 'required',
+            //     // 'property_loss' => 'required',
+            //     'officer_name_present_at_last_moment' => 'required',
+            //     'date_of_departure_from_scene' => 'required',
+            //     'time_of_departure_from_scene' => 'required',
+            //     'total_time' => 'required',
+            //     'total_hour' => 'required',
+            //     'male_one' => 'required',
+            //     'woman_one' => 'required',
+            //     'male_two' => 'required',
+            //     'woman_two' => 'required',
+            //     'male_three' => 'required',
+            //     'woman_three' => 'required',
+            //     'deceased_male' => 'required',
+            //     'deceased_woman' => 'required',
+            //     'wounded_male' => 'required',
+            //     'wounded_woman' => 'required',
+            //     'casualty_male' => 'required',
+            //     'casualty_woman' => 'required',
+            //     'book_no' => 'required',
+            //     'page_no' => 'required',
+            // ]);
 
             // Store data in the database
             DB::table('vardi_ahaval_details')->insert([
@@ -368,11 +366,9 @@ class OccuranceBookController extends Controller
                 'additional_help_details.type_of_vehicle',
                 'additional_help_details.vehicle_return_to_center_time',
                 'additional_help_details.total_distance',
-                'additional_help_details.pumping_hours',
-                'vehicle_details.vehicle_number',
-                'fire_stations.name',)
-            ->join('fire_stations', 'additional_help_details.fire_station_name', '=', 'fire_stations.fire_station_id')
-            ->join('vehicle_details', 'additional_help_details.vehicle_number', '=', 'vehicle_details.vehicle_id')
+                'additional_help_details.pumping_hours','additional_help_details.fire_station_name as name','additional_help_details.vehicle_number')
+            // ->join('fire_stations', 'additional_help_details.fire_station_name', '=', 'fire_stations.fire_station_id')
+            // ->join('vehicle_details', 'additional_help_details.vehicle_number', '=', 'vehicle_details.vehicle_id')
             ->where('additional_help_details.slip_id', $slipId)
             ->get();
 

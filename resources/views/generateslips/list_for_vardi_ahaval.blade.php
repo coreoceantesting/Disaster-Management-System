@@ -27,12 +27,12 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        
+
                                         <div class="col-md-4">
                                             <label for="no_of_fireman[]" class="control-label">No Of FireMan (फायरमनची संख्या):</label>
                                             <input class="form-control" type="number" name="no_of_fireman[]" required>
                                         </div>
-                                        
+
                                         <div class="col-md-4">
                                             <label for="vehicle_no[]" class="control-label">Vehicle Number (वाहन क्रमांक):</label>
                                             <select class="form-control" name="vehicle_no[]" required>
@@ -47,7 +47,7 @@
                                             <label for="inform_call_datetime[]" class="control-label">Inform Call Date & Time (कॉलची तारीख आणि वेळ):</label>
                                             <input class="form-control" type="datetime-local" name="inform_call_time[]" required>
                                         </div>
-    
+
                                         <div class="col-md-4">
                                             <label for="departure_vehicle_datetime[]" class="control-label">Departure Vehicle Date & Time (वाहन सुटण्याची तारीख आणि वेळ):</label>
                                             <input class="form-control" type="datetime-local" name="departure_vehicle_datetime[]" required>
@@ -57,8 +57,8 @@
                                             <label for="vehicle_arrival_datetime[]" class="control-label">Vehicle Arrival Date & Time (वाहन येण्याची तारीख आणि वेळ):</label>
                                             <input class="form-control" type="datetime-local" name="vehicle_arrival_datetime[]" required>
                                         </div>
-    
-                                        <div class="col-md-4">                                            
+
+                                        <div class="col-md-4">
                                             <label for="vehicle_return_to_firestation_datetime[]" class="control-label">Vehicle Return To Fire Station Date & Time (वाहन अग्निशमन केंद्रावर परतण्याची तारीख आणि वेळ):</label>
                                             <input class="form-control" type="datetime-local" name="vehicle_return_to_firestation_datetime[]" required>
                                         </div>
@@ -85,8 +85,8 @@
                 </form>
             </div>
         </div>
-        
-        
+
+
         {{-- Occurance Book  --}}
         <div class="row" id="occurance-book" style="display:none;">
             <div class="col-sm-12">
@@ -138,47 +138,47 @@
 
                             <div class="mb-3 row">
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="vardi_name">Name of Vardi Issuer (वरदी देणेराचे नाव) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="vardi_name">Name of Vardi Issuer (वरदी देणेराचे नाव) <span class="text-danger"></span></label>
                                     <input class="form-control" id="vardi_name" name="vardi_name" type="text" placeholder="Enter Name of Vardi Issuer" readonly>
                                     <span class="text-danger error-text vardi_name_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="vardi_contact_no">Vardi Issuer's No ( वर्दी जारीकर्ता क्र) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="vardi_contact_no">Vardi Issuer's No ( वर्दी जारीकर्ता क्र) <span class="text-danger"></span></label>
                                     <input class="form-control" id="vardi_contact_no" name="vardi_contact_no" type="text" placeholder="Enter Vardi Issuer's No" readonly>
                                     <span class="text-danger error-text vardi_contact_no_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="vardi_place">Vardi Location ( वर्दीचे ठिकाण ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="vardi_place">Vardi Location ( वर्दीचे ठिकाण ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="vardi_place" name="vardi_place" type="text" placeholder="Enter Vardi Location">
                                     <span class="text-danger error-text vardi_place_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="owner_name">Owner's Name ( मालकाचे नाव ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="owner_name">Owner's Name ( मालकाचे नाव ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="owner_name" name="owner_name" type="text" placeholder="Enter Owner's Name">
                                     <span class="text-danger error-text owner_name_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="vaparkarta_name">Name Of Vaparkarta ( वापर करणाऱयांचे नाव  ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="vaparkarta_name">Name Of Vaparkarta ( वापर करणाऱयांचे नाव  ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="vaparkarta_name" name="vaparkarta_name" type="text" placeholder="Enter Vaparkarta Name">
                                     <span class="text-danger error-text vaparkarta_name_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="incident_time">Incident Time ( वर्दीची वेळ ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="incident_time">Incident Time ( वर्दीची वेळ ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="incident_time" name="incident_time" type="datetime-local">
                                     <span class="text-danger error-text incident_time_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="first_vehicle_departing_date_time">Timing Of The First Vehicle Departing On Verdi ( वर्दीवर प्रथम रवाना झालेल्या गाडीची वेळ   ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="first_vehicle_departing_date_time">Timing Of The First Vehicle Departing On Verdi ( वर्दीवर प्रथम रवाना झालेल्या गाडीची वेळ   ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="first_vehicle_departing_date_time" name="first_vehicle_departing_date_time" type="datetime-local">
                                     <span class="text-danger error-text first_vehicle_departing_date_time_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="time_of_arrival_at_the_scene">Time Of Arrival At The Scene ( घटनास्थळी पोह्चल्याची वेळ ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="time_of_arrival_at_the_scene">Time Of Arrival At The Scene ( घटनास्थळी पोह्चल्याची वेळ ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="time_of_arrival_at_the_scene" name="time_of_arrival_at_the_scene" type="datetime-local">
                                     <span class="text-danger error-text time_of_arrival_at_the_scene_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="time_of_arrival_at_the_scene">Distance Of Incident Site From Fire Station ( अग्निशमन केंद्रापासून घटनास्तळाचे अंतर ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="time_of_arrival_at_the_scene">Distance Of Incident Site From Fire Station ( अग्निशमन केंद्रापासून घटनास्तळाचे अंतर ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="distance" name="distance" type="number" placeholder="Distance Of Incident Site From Fire Station In KM">
                                     <span class="text-danger error-text distance_err"></span>
                                 </div>
@@ -196,13 +196,13 @@
 
                             <div class="mb-3 row">
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="property_description">Property Description Of The Fire Location (आग लागलेल्या ठिकाणच्या मालमतेचे वर्णन ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="property_description">Property Description Of The Fire Location (आग लागलेल्या ठिकाणच्या मालमतेचे वर्णन ) <span class="text-danger"></span></label>
                                     {{-- <input class="form-control" id="property_description" name="property_description" type="text" placeholder="Enter Property Description Of The Fire Location"> --}}
                                     <textarea class="form-control" name="property_description" id="property_description" placeholder="Enter Property Description Of The Fire Location" cols="30" rows="3"></textarea>
                                     <span class="text-danger error-text property_description_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="type_of_fire">Type of fire ( आगीचा प्रकार ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="type_of_fire">Type of fire ( आगीचा प्रकार ) <span class="text-danger"></span></label>
                                     <select class="form-control" name="type_of_fire" id="type_of_fire">
                                         <option value="">--Select Type Of Fire--</option>
                                         <option value="A-solid">A-solid</option>
@@ -225,7 +225,7 @@
                                     <span class="text-danger error-text limit_of_fire_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="possible_cause_of_fire">Possible Cause Of Fire ( आगीचं शक्य कारण ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="possible_cause_of_fire">Possible Cause Of Fire ( आगीचं शक्य कारण ) <span class="text-danger"></span></label>
                                     {{-- <input class="form-control" id="possible_cause_of_fire" name="possible_cause_of_fire" type="text" placeholder="Enter Possible Cause Of Fire"> --}}
                                     <textarea class="form-control" name="possible_cause_of_fire" id="possible_cause_of_fire" placeholder="Enter Possible Cause Of Fire" cols="30" rows="3"></textarea>
                                     <span class="text-danger error-text possible_cause_of_fire_err"></span>
@@ -243,7 +243,7 @@
                                     <span class="text-danger error-text property_damage_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="area_damage">Estimated Surrounding Area Damage ( अंदाजित आजुबाजुचा परिसर नुकसान ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="area_damage">Estimated Surrounding Area Damage ( अंदाजित आजुबाजुचा परिसर नुकसान ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="area_damage" name="area_damage" type="text" placeholder="Enter Estimated property damage">
                                     <span class="text-danger error-text area_damage_err"></span>
                                 </div>
@@ -259,27 +259,27 @@
                                     <span class="text-danger error-text property_loss_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="officer_name_present_at_last_moment">Name of the officer present at the scene at the last moment ( अखेरच्या क्षणी घटनास्थळी उपस्थित असलेल्या अधिकाऱ्यांचे नाव ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="officer_name_present_at_last_moment">Name of the officer present at the scene at the last moment ( अखेरच्या क्षणी घटनास्थळी उपस्थित असलेल्या अधिकाऱ्यांचे नाव ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="officer_name_present_at_last_moment" name="officer_name_present_at_last_moment" type="text" placeholder="Enter Name of the officer present at the scene at the last moment">
                                     <span class="text-danger error-text officer_name_present_at_last_moment_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="date_of_departure_from_scene">Date of departure from the scene ( घटनास्तळावरून निघाल्याची तारीख ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="date_of_departure_from_scene">Date of departure from the scene ( घटनास्तळावरून निघाल्याची तारीख ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="date_of_departure_from_scene" name="date_of_departure_from_scene" type="date" placeholder="Enter Date of departure from the scene">
                                     <span class="text-danger error-text date_of_departure_from_scene_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="time_of_departure_from_scene">Time to leave the scene ( घटनास्तळावरून निघाल्याची वेळ ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="time_of_departure_from_scene">Time to leave the scene ( घटनास्तळावरून निघाल्याची वेळ ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="time_of_departure_from_scene" name="time_of_departure_from_scene" type="time" placeholder="Time to leave the scene">
                                     <span class="text-danger error-text time_of_departure_from_scene_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="total_time">Total Time ( एकुण वेळ ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="total_time">Total Time ( एकुण वेळ ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="total_time" name="total_time" type="text" placeholder="Enter Total Time">
                                     <span class="text-danger error-text total_time_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="total_hour">Total Hours ( एकुण तास ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="total_hour">Total Hours ( एकुण तास ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="total_hour" name="total_hour" type="text" placeholder="Enter Total Hour">
                                     <span class="text-danger error-text total_hour_err"></span>
                                 </div>
@@ -299,12 +299,12 @@
                                 <h4 class="card-title text-center">Rescue Work Done By Other Than Fire Department (अग्निशमन विभागा व्यतिरिक्त केलेले विमोचन कार्य)</h4>
                                 <hr>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="male_one">Male Number(पुरुष संख्या) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="male_one">Male Number(पुरुष संख्या) <span class="text-danger"></span></label>
                                     <input class="form-control" id="male_one" name="male_one" type="text" placeholder="Enter Male Numbers">
                                     <span class="text-danger error-text male_one_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="woman_one">Woman Number(स्त्री संख्या) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="woman_one">Woman Number(स्त्री संख्या) <span class="text-danger"></span></label>
                                     <input class="form-control" id="woman_one" name="woman_one" type="text" placeholder="Enter Woman Numbers">
                                     <span class="text-danger error-text woman_one_err"></span>
                                 </div>
@@ -314,12 +314,12 @@
                                 <h4 class="card-title text-center">A Rescue Operation Performed By The Fire Department Without The Use Of A Rescue Vehicle (अग्निशमन विभागाने बचाव वाहनाचा वापर न करता केलेले विमोचन कार्य )</h4>
                                 <hr>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="male_two">Male Number (पुरुष संख्या) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="male_two">Male Number (पुरुष संख्या) <span class="text-danger"></span></label>
                                     <input class="form-control" id="male_two" name="male_two" type="text" placeholder="Enter Male Numbers">
                                     <span class="text-danger error-text male_two_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="woman_two">Woman Number (स्त्री संख्या) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="woman_two">Woman Number (स्त्री संख्या) <span class="text-danger"></span></label>
                                     <input class="form-control" id="woman_two" name="woman_two" type="text" placeholder="Enter Woman Numbers">
                                     <span class="text-danger error-text woman_two_err"></span>
                                 </div>
@@ -329,12 +329,12 @@
                                 <h4 class="card-title text-center">A Rescue Vehicle Was Used By The Fire Department For Rescue Operations (अग्निशमन विभागाने बचाव वाहनाचा वापर केलेले विमोचन कार्य)</h4>
                                 <hr>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="male_three">Male Number (पुरुष संख्या) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="male_three">Male Number (पुरुष संख्या) <span class="text-danger"></span></label>
                                     <input class="form-control" id="male_three" name="male_three" type="text" placeholder="Enter Male Numbers">
                                     <span class="text-danger error-text male_three_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="woman_three">Woman Number (स्त्री संख्या) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="woman_three">Woman Number (स्त्री संख्या) <span class="text-danger"></span></label>
                                     <input class="form-control" id="woman_three" name="woman_three" type="text" placeholder="Enter Woman Numbers">
                                     <span class="text-danger error-text woman_three_err"></span>
                                 </div>
@@ -354,12 +354,12 @@
                                 <h4 class="card-title text-center">Deceased (मयत)</h4>
                                 <hr>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="deceased_male">Male Number (पुरुष संख्या ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="deceased_male">Male Number (पुरुष संख्या ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="deceased_male" name="deceased_male" type="text" placeholder="Enter Deceased Male Numbers">
                                     <span class="text-danger error-text deceased_male_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="deceased_woman">Woman Number (स्त्री संख्या ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="deceased_woman">Woman Number (स्त्री संख्या ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="deceased_woman" name="deceased_woman" type="text" placeholder="Enter Woman Numbers">
                                     <span class="text-danger error-text deceased_woman_err"></span>
                                 </div>
@@ -369,12 +369,12 @@
                                 <h4 class="card-title text-center">Wounded (जखमी)</h4>
                                 <hr>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="wounded_male">Male Number (पुरुष संख्या ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="wounded_male">Male Number (पुरुष संख्या ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="wounded_male" name="wounded_male" type="text" placeholder="Enter Male Numbers">
                                     <span class="text-danger error-text wounded_male_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="wounded_woman">Woman Number (स्त्री संख्या ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="wounded_woman">Woman Number (स्त्री संख्या ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="wounded_woman" name="wounded_woman" type="text" placeholder="Enter Woman Numbers">
                                     <span class="text-danger error-text wounded_woman_err"></span>
                                 </div>
@@ -384,12 +384,12 @@
                                 <h4 class="card-title text-center">Casualty (मृत्यू)</h4>
                                 <hr>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="casualty_male">Male Number (पुरुष संख्या ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="casualty_male">Male Number (पुरुष संख्या ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="casualty_male" name="casualty_male" type="text" placeholder="Enter Male Numbers">
                                     <span class="text-danger error-text casualty_male_err"></span>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label" for="casualty_woman">Woman Number (स्त्री संख्या ) <span class="text-danger">*</span></label>
+                                    <label class="col-form-label" for="casualty_woman">Woman Number (स्त्री संख्या ) <span class="text-danger"></span></label>
                                     <input class="form-control" id="casualty_woman" name="casualty_woman" type="text" placeholder="Enter Woman Numbers">
                                     <span class="text-danger error-text casualty_woman_err"></span>
                                 </div>
@@ -400,12 +400,12 @@
                         <hr>
                         <div class="mb-3 row">
                             <div class="col-md-4">
-                                <label class="col-form-label" for="book_no">Book No( घटना पुस्तक क्रं ) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="book_no">Book No( घटना पुस्तक क्रं ) <span class="text-danger"></span></label>
                                 <input class="form-control" id="book_no" name="book_no" type="text" placeholder="Enter Book No">
                                 <span class="text-danger error-text book_no_err"></span>
                             </div>
                             <div class="col-md-4">
-                                <label class="col-form-label" for="page_no">Page No( पृष्ठ क्रं ) <span class="text-danger">*</span></label>
+                                <label class="col-form-label" for="page_no">Page No( पृष्ठ क्रं ) <span class="text-danger"></span></label>
                                 <input class="form-control" id="page_no" name="page_no" type="text" placeholder="Enter Page No">
                                 <span class="text-danger error-text page_no_err"></span>
                             </div>
@@ -419,7 +419,7 @@
                 </form>
             </div>
         </div>
-        
+
 
 
         {{-- Listing Table --}}
@@ -580,7 +580,7 @@
                     // Generate HTML table with the predefined headers
                     var tableHtml = '<h3 class="text-center"> Slip Details (स्लिप तपशील) </h3><br>';
                     tableHtml += '<table class="table table-bordered">';
-                    
+
                     // Use predefined headers
                     tableHtml += '<thead><tr>';
                     tableHtml += '<th scope="col">Slip Date (स्लिप तारीख)</th>';
@@ -619,7 +619,7 @@
                     tableHtml += '<th scope="col">Time of departure from the scene (घटनास्तळावरुन निघाल्याची तारीख आणि वेळ)</th>';
                     tableHtml += '<th scope="col">Time of arrival at the centre (केंद्रामध्ये आल्याची वेळ)</th>';
                     tableHtml += '<th scope="col">Total Distance In KM (एकूण अतंर)</th>';
-                    tableHtml += '<th scope="col">Pumping hours (पंपिंग तास)</th>';
+                    // tableHtml += '<th scope="col">Pumping hours (पंपिंग तास)</th>';
                     // ... (remaining headers here)
                     tableHtml += '</tr></thead>';
                     tableHtml += '<tbody>';
@@ -634,7 +634,7 @@
                     tableHtml += '<td>' + data.slip_action_form_data.vehicle_departure_from_scene_time + '</td>';
                     tableHtml += '<td>' + data.slip_action_form_data.vehicle_arrival_at_center_time + '</td>';
                     tableHtml += '<td>' + data.slip_action_form_data.total_distance + '</td>';
-                    tableHtml += '<td>' + data.slip_action_form_data.pumping_hours + '</td>';
+                    // tableHtml += '<td>' + data.slip_action_form_data.pumping_hours + '</td>';
                     // ... (remaining data here)
                     tableHtml += '</tr>';
                     tableHtml += '</tbody></table>';
@@ -671,7 +671,7 @@
                         tableHtml += '<th scope="col">Vehicle Return DateTime (वाहन परतीची तारीख वेळ)</th>';
                         tableHtml += '<th scope="col">Time to return to the center (केंद्रावर परतण्याची वेळ)</th>';
                         tableHtml += '<th scope="col">Total K.M (एकूण कि.मी)</th>';
-                        tableHtml += '<th scope="col">Pumping Hours (पंपिंग तास)</th>';
+                        // tableHtml += '<th scope="col">Pumping Hours (पंपिंग तास)</th>';
                         tableHtml += '</tr></thead>';
                         tableHtml += '<tbody>';
                         // Loop through worker details
@@ -687,7 +687,7 @@
                             tableHtml += '<td>' + help.vehicle_return_time + '</td>';
                             tableHtml += '<td>' + help.vehicle_return_to_center_time + '</td>';
                             tableHtml += '<td>' + help.total_distance + '</td>';
-                            tableHtml += '<td>' + help.pumping_hours + '</td>';
+                            // tableHtml += '<td>' + help.pumping_hours + '</td>';
                             tableHtml += '</tr>';
                         });
                         tableHtml += '</tbody></table>';
@@ -719,7 +719,7 @@
 
                     // Display table in the modal
                     $('#slipDetails').html(tableHtml);
-                    
+
                     // Show the modal
                     $('#viewSlipModal').modal('show');
                 },
@@ -768,7 +768,7 @@
                 type: 'POST',
                 data: formData,
                 success: function(data) {
-                    
+
                     if (!data.error2)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
@@ -814,7 +814,7 @@
                 type: 'POST',
                 data: formData,
                 success: function(data) {
-                    
+
                     if (!data.error2)
                     swal("Successful!", data.success, "success")
                         .then((action) => {
