@@ -130,14 +130,14 @@
                         </ul>
                     </div>
                 </li>
-                {{-- @canany(['actionpermissions.create_vardi_book', 'actionpermissions.download_vardi_ahaval'])
+                @canany(['actionpermissions.create_vardi_book', 'actionpermissions.download_vardi_ahaval'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('vardi_ahaval_list') }}" >
                         <i class="ri-file-chart-line"></i>
                         <span data-key="t-vardiAhaval">Vardi Ahaval</span>
                     </a>
                 </li>
-                @endcan --}}
+                @endcan
 
                 <li class="nav-item">
 

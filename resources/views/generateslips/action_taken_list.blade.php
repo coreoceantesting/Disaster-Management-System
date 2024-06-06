@@ -118,17 +118,18 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="fire_station[]" class="control-label">Fire Station Name (फायर स्टेशनचे नाव) <span class="text-danger">*</span>:</label>
-                                            <select class="form-control fire-station" name="fire_station[]" required>
+                                            <input class="form-control fire-station" type="text" name="fire_station[]" placeholder="Enter Name" required>
+                                            {{-- <select class="form-control fire-station" name="fire_station[]" required>
                                                 <option value="">--Select Fire Station--</option>
                                                 @foreach ($fire_station_list as $list)
                                                     <option value="{{ $list->fire_station_id }}">{{ $list->name }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
                                         </div>
 
                                         <div class="col-md-4">
                                             <label for="no_of_fireman[]" class="control-label">No Of FireMan (फायरमनची संख्या) <span class="text-danger">*</span>:</label>
-                                            <input class="form-control" type="number" name="no_of_fireman[]" required>
+                                            <input class="form-control" type="number" name="no_of_fireman[]" placeholder="Enter No of fireman" required>
                                         </div>
 
                                         {{-- <div class="col-md-4">
@@ -143,9 +144,10 @@
 
                                         <div class="col-md-4">
                                             <label for="type_of_vehicle[]" class="control-label">Type Of Vehicle (वाहनाचा प्रकार) <span class="text-danger">*</span>:</label>
-                                            <select class="form-control type-of-vehicle" name="type_of_vehicle[]" required>
+                                            <input type="text" name="type_of_vehicle[]" class="form-control type-of-vehicle" placeholder="Enter type of vechicle" required>
+                                            {{-- <select class="form-control type-of-vehicle" name="type_of_vehicle[]" required>
                                                 <option value="">--Select Vehicle Type--</option>
-                                            </select>
+                                            </select> --}}
                                         </div>
 
                                         {{-- <div class="col-md-4">
@@ -160,9 +162,10 @@
 
                                         <div class="col-md-4">
                                             <label for="vehicle_no[]" class="control-label">Vehicle Number (वाहन क्रमांक) <span class="text-danger">*</span>:</label>
-                                            <select class="form-control vehicle-no" name="vehicle_no[]" required>
+                                            <input type="text" name="vehicle_no[]" class="form-control vehicle-no" placeholder="enter Vehicle No" required>
+                                            {{-- <select class="form-control vehicle-no" name="vehicle_no[]" required>
                                                 <option value="">--Select Vehicle Number--</option>
-                                            </select>
+                                            </select> --}}
                                         </div>
 
                                         <div class="col-md-4">

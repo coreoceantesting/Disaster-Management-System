@@ -103,7 +103,7 @@ class OccuranceBookController extends Controller
                 'vehicle_return_time' => $request->input('vehicle_return_to_firestation_datetime')[$key],
                 'vehicle_return_to_center_time' => $request->input('vehicle_return_to_center_datetime')[$key],
                 'total_distance' => $request->input('total_distance')[$key],
-                'pumping_hours' => $request->input('pumping_hours')[$key],
+                // 'pumping_hours' => $request->input('pumping_hours')[$key],
                 'created_by' => Auth::user()->id,
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
