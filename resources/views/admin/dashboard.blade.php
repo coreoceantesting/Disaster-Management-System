@@ -187,7 +187,7 @@
                         </div>
                         <!-- end card-->
                     </div><!--end col-->
-                    <div class="col-xl-6 col-md-6 d-none">
+                    <div class="col-xl-6 col-md-6">
                         <!-- card -->
                         <div class="card card-animate" id="vardiahavalSlipsCardNew">
                             <div class="card-body" style="background-color: paleturquoise">
