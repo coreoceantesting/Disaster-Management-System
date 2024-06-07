@@ -126,43 +126,46 @@
 </x-admin.layout>
 
 
-{{-- Add --}}
+{{-- submit department --}}
 <script>
-    $("#addForm").submit(function(e) {
-        e.preventDefault();
-        $("#addSubmit").prop('disabled', true);
+    $('#addForm').submit(function(event) {
+        // Prevent the default form submission
+        event.preventDefault();
 
-        var formdata = new FormData(this);
+        // Reset previous errors
+        resetErrors();
+
+        // Serialize the form data
+        var formData = $(this).serialize();
+
+        // Make an AJAX request
         $.ajax({
-            url: '{{ route('departments.store') }}',
+            url: '{{ route('departments.store') }}', // Get the form action attribute
             type: 'POST',
-            data: formdata,
-            contentType: false,
-            processData: false,
-            success: function(data)
-            {
-                $("#addSubmit").prop('disabled', false);
-                if (!data.error2)
-                    swal("Successful!", data.success, "success")
-                        .then((action) => {
-                            window.location.href = '{{ route('departments.index') }}';
+            data: formData,
+            success: function(data) {
+                if (!data.error2) {
+                    if (data.errors) {
+                        // Display validation errors
+                        $.each(data.errors, function(field, messages) {
+                            $('.' + field + '_err').text(messages); // Display all messages if there are multiple
+                            $("[name='"+field+"']").addClass('is-invalid');
                         });
-                else
+                    } else if (data.success) {
+                        swal("Successful!", data.success, "success")
+                            .then((action) => {
+                                window.location.href = '{{ route('departments.index') }}';
+                            });
+                    }
+                } else {
                     swal("Error!", data.error2, "error");
-            },
-            statusCode: {
-                422: function(responseObject, textStatus, jqXHR) {
-                    $("#addSubmit").prop('disabled', false);
-                    resetErrors();
-                    printErrMsg(responseObject.responseJSON.errors);
-                },
-                500: function(responseObject, textStatus, errorThrown) {
-                    $("#addSubmit").prop('disabled', false);
-                    swal("Error occured!", "Something went wrong please try again", "error");
                 }
+            },
+            error: function(error) {
+                // Handle error response
+                console.log(error);
             }
         });
-
     });
 </script>
 

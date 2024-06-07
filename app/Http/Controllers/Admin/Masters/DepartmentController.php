@@ -10,6 +10,7 @@ use App\Models\Department;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class DepartmentController extends Controller
 {
@@ -59,9 +60,9 @@ class DepartmentController extends Controller
 
             return response()->json(['success'=> 'Department created successfully!']);
         }
-        catch(\Exception $e)
-        {
-            return $this->respondWithAjax($e, 'creating', 'Department');
+        catch (ValidationException $e) {
+            // If validation fails, return validation errors
+            return response()->json(['errors' => $e->errors()]);
         }
     }
 
