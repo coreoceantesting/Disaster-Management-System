@@ -166,9 +166,9 @@
                                 <a href="{{ route('action_taken_list') }}" class="nav-link" data-key="t-horizontal">Action Taken Slips(कारवाई केलेल्या स्लिप्स)</a>
                             </li>
 
-                            {{-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a href="{{ route('vardi_ahaval_list') }}" class="nav-link" data-key="t-horizontal">Vardi Ahaval(वर्दी अहवाल)</a>
-                            </li> --}}
+                            </li>
 
                         </ul>
                     </div>
